@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: desafio02kubenews
-          image: viniciuscaol/desafio02kubenews:latest
+          image: viniciuscaol/desafio04:latest
           ports:
             - containerPort: 8080
           env:
