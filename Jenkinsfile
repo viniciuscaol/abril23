@@ -23,8 +23,12 @@ pipeline{
         }
 
         stage ('Deploy Kubernetes') {
+            environment {
+                tag_version = "${env.BUILD_ID}"
+            }
             steps {
                 withKubeConfig ([credentialsId: 'kubeconfig']) {
+                    sh 'sed -i "s/{{TAG}}/$tag_version/g" ./Desafio04/kube-news/k8s/api/deployment.yaml'
                     sh 'kubectl apply -f ./Desafio04/kube-news/k8s -R'
                 }
             }
