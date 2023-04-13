@@ -21,5 +21,13 @@ pipeline{
                 }
             }
         }
+
+        stage ('Deploy Kubernetes') {
+            steps {
+                withKubeConfig ([credentialsId: 'kubeconfig']) {
+                    sh 'kubectl apply -f ./Desafio04/kube-news/k8s -R'
+                }
+            }
+        }
     }
 }
