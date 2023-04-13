@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: desafio02
+spec:
+  selector:
+    matchLabels:
+      app: desafio02
+  template:
+    metadata:
+      labels:
+        app: desafio02
+    spec:
+      containers:
+      - name: desafio02
+        image: viniciuscaol/desafio01
+        resources: {}
+        ports:
+        - containerPort: 8080
