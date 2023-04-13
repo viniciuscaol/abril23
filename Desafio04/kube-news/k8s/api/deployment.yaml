@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: desafio02kubenews
+  name: desafio04kubenews
 spec:
   replicas: 5
   selector:
     matchLabels:
-      app: desafio02kubenews
+      app: desafio04kubenews
   template:
     metadata:
       labels:
-        app: desafio02kubenews
+        app: desafio04kubenews
     spec:
       containers:
-        - name: desafio02kubenews
+        - name: desafio04kubenews
           image: viniciuscaol/desafio04:latest
           ports:
             - containerPort: 8080
