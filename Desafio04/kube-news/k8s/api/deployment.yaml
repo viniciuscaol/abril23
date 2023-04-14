@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: desafio04kubenews
 spec:
-  replicas: 5
+  replicas: 10
   selector:
     matchLabels:
       app: desafio04kubenews
@@ -11,6 +11,10 @@ spec:
     metadata:
       labels:
         app: desafio04kubenews
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/prot: "8080"
+        prometheus.io/path: "/metrics"
     spec:
       containers:
         - name: desafio04kubenews
